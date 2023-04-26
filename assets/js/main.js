@@ -20,12 +20,6 @@ function convertPokemonToListItem(pokemon) {
 var pokemonList = document.getElementById("pokemonList");
 
 pokeApi.getAll().then((pokemons = []) => {
-        // debugger
-        for (let i = 0; i < pokemons.length; i++) {
-            const pokemon = pokemons[i];
-            pokemonList.innerHTML += convertPokemonToListItem(pokemon);
-        }
-    })
-    .finally(() => {
-        console.log('Requisição finalizada!');
-    });
+    pokemonList.innerHTML += pokemons.map(
+                                (pokemon) => convertPokemonToListItem(pokemon)).join('')
+});
