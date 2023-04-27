@@ -2,15 +2,15 @@ class Pokemon {
 
     number;
     name;
-    type;
+    mainType;
     types = [];
     image;
 
-    constructor(number, name, types, image) {
+    constructor(number, name, types, mainType, image) {
         this.number = number;
         this.name = name;
         this.types = types;
-        this.type = this.types.get(0);
+        this.mainType = mainType;
         this.image = image;
     }
 }

@@ -3,12 +3,18 @@ const source = 'pokemon'
 
 const  pokeApi = {};
 
-function convertPokeApiDetailsToPokemon(details) {
+function convertPokeApiDetailsToPokemon(pokemonDetails) {
+    // debugger
+
+    const types = pokemonDetails.types.map((typeSlot) => typeSlot.type.name);
+    const [mainType] = types
+
     return new Pokemon(
-        details.number,
-        details.name,
-        details.types.map((typeSlot) => {typeSlot.type.name}),
-        details.image = details.sprites.other.dream_world.front_default
+        pokemonDetails.id,
+        pokemonDetails.name,
+        types,
+        mainType,
+        pokemonDetails.image = pokemonDetails.sprites.other.dream_world.front_default
     );
 }
 
