@@ -1,23 +1,19 @@
 function convertPokemonToListItem(pokemon) {
     return `
         <li class="pokemon">
-        <span class="number">#${pokemon.order}</span>
+        <span class="number">#${pokemon.number}</span>
         <span class="name">
             ${pokemon.name}
         </span>
 
         <div class="details">
             <ol class="types">
-                ${convertPokemonTypesToListItem(pokemon.types).join('')}
+                ${pokemon.types.map((type) => `<li class="type">${type}</li>`).join('')}
             </ol>      
-            <img src="${pokemon.sprites.other.dream_world.front_default}" alt="${pokemon.name}">
+            <img src="${pokemon.image}" alt="${pokemon.name}">
         </div>
     </li>
     `;
-}
-
-function convertPokemonTypesToListItem(pokemonTypes) {
-    return pokemonTypes.map((typeSlot) => `<li class="type">${typeSlot.type.name}</li>`);
 }
 
 var pokemonList = document.getElementById("pokemonList");
