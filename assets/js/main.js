@@ -3,6 +3,7 @@ const loadMoreButton = document.getElementById('loadMore');
 
 let offset = 0;
 const limit = 10;
+const MAX_RECORDS = 151;
 
 function loadMorePokemonItens(offset, limit) {
     pokeApi.getAll(offset, limit).then((pokemons = []) => {
@@ -25,9 +26,19 @@ function loadMorePokemonItens(offset, limit) {
     });    
 }
 
-loadMoreButton.addEventListener('click', () => {
-    offset += limit;
-    loadMorePokemonItens(offset, limit);
-});
-
 loadMorePokemonItens(offset, limit);
+
+loadMoreButton.addEventListener('click', () => {
+    // debugger
+    offset += limit;
+    const qtRecordsOnNextPage = offset + limit;
+    
+    if (qtRecordsOnNextPage >= MAX_RECORDS) {
+        const newLimit = MAX_RECORDS - offset; 
+        loadMorePokemonItens(offset, newLimit);   
+        
+        loadMoreButton.parentElement.removeChild(loadMoreButton);
+    } else {
+        loadMorePokemonItens(offset, limit); 
+    }
+});
