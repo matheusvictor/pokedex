@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="./assets/css/global.css">
+    <link rel="stylesheet" href="./assets/css/pokedex.css">
+
+</head>
+<body>
+
+    <section class="pokedex-content"> 
+               
+        <ol id="pokemonList" class="pokemon-list">
+    
+            <li class="pokemon-card bug" onClick="showMorePokemonDetails()">
+
+                <span class="pokemon-number">#001</span>
+                <span class="pokemon-name">Bulba</span>
+    
+                <div class="pokemon-details">
+                    <ol class="pokemon-types">
+                       <li class="pokemon-type">Grass</li>
+                       <li class="pokemon-type">Grass</li>
+                    </ol> 
+
+                    <div class="pokemon-image" >
+                        <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/1.svg" alt="${pokemon.name}" >
+                    </div>    
+                </div>                
+            </li>
+
+        </ol>
+
+    </section>
+
+    <pokemon-list-item></pokemon-list-item>
+
+    <script src="src/components/PokemonListItem.js" defer></script>
+    
+</body>
+</html>
