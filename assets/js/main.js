@@ -6,13 +6,11 @@ const limit = 10;
 const MAX_RECORDS = 151;
 
 function loadMorePokemonItens(offset, limit) {
-    pokeApi.getAll(offset, limit).then((pokemons = []) => {
+    pokeApi.getAllPokemons(offset, limit).then((pokemons = []) => {
         pokemonList.innerHTML += pokemons.map((pokemon) => `
-                                            <li class="pokemon ${pokemon.mainType}">
-                                                <span class="number">#${pokemon.number}</span>
-                                                <span class="name">
-                                                    ${pokemon.name}
-                                                </span>
+                                            <li class="pokemon ${pokemon.mainType}" onClick="showMorePokemonDetails(${pokemon.number})">
+                                                <span class="pokemon-number">#${pokemon.number}</span>
+                                                <span class="name">${pokemon.name}</span>
                                     
                                                 <div class="details">
                                                     <ol class="types">
@@ -24,6 +22,16 @@ function loadMorePokemonItens(offset, limit) {
                                             `
                                         ).join('')
     });    
+}
+
+
+let modalContainer = document.getElementById("modalContainer");
+
+function showMorePokemonDetails(number) {
+    pokeApi.getMoreDetailsOfPokemon(number);
+    console.log(`Cliquei em ${number}`);
+
+    console.log(modalContainer)
 }
 
 loadMorePokemonItens(offset, limit);

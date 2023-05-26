@@ -20,11 +20,14 @@
     <link rel="stylesheet" href="./assets/css/global.css">
     <link rel="stylesheet" href="./assets/css/pokedex.css">
 </head>
-<body>
-    <section class="content">
-        <h1>Pokédex</h1>
 
-        <ol id="pokemonList" class="pokemons" >
+<body class="bg-dark">
+
+    <h1 class="main-title">Pokédex</h1>
+    
+    <section class="pokedex-content"> 
+               
+        <ol id="pokemonList" class="pokemon-list">
             <!-- Pokemons here-->
         </ol>
 
@@ -34,7 +37,61 @@
 
     </section>
 
+    <div>
+      
+      <div class="pokemon-card-details" onclick="hideModal()">
+
+        <div class="pokemon-card-image">
+            <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/1.svg">
+        </div>
+
+        <div class="pokemon-card-info">
+            <span>Bulba</span>  
+            <span>#001</span> 
+
+            <div class="detail-stats-box">
+
+                <div class="detail-stats">
+                  <p class="detail-stats-value" data-value="${detailsCard.hp}">0</p>
+                  <p class="detail-stats-type">HP</p>
+                </div>
+            
+                <div class="detail-stats">
+                  <p class="detail-stats-value" data-value="${detailsCard.attack}">0</p>
+                  <p class="detail-stats-type">Attack</p>
+                </div>
+            
+                <div class="detail-stats">
+                  <p class="detail-stats-value" data-value="${detailsCard.defense}">0</p>
+                  <p class="detail-stats-type">Defense</p>
+                </div>
+            
+                <div class="detail-stats">
+                  <p class="detail-stats-value" data-value="${detailsCard.specialAttack}">0</p>
+                  <p class="detail-stats-type">Special Attack</p>
+                </div>
+            
+                <div class="detail-stats">
+                  <p class="detail-stats-value" data-value="${detailsCard.specialDefense}">0</p>
+                  <p class="detail-stats-type">Special Defense</p>
+                </div>
+            
+                <div class="detail-stats">
+                  <p class="detail-stats-value" data-value="${detailsCard.speed}">0</p>
+                  <p class="detail-stats-type">Speed</p>
+                </div>
+              </div>
+            </div>
+
+        </div>
+    </div>
+
+    </div>
+    
+    
     <!-- JS -->
+    <script src="src/components/PokemonDetailsCard.js" defer></script>
+    <script src="src/components/PokemonItem.js" defer></script>
     <script src="./assets/js/pokemon-model.js"></script>
     <script src="./assets/js/poke-api.js"></script>
     <script src="./assets/js/main.js"></script>

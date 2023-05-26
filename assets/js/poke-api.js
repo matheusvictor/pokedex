@@ -30,8 +30,6 @@ pokeApi.getMoreDetailsOfPokemon = (pokemonNumber) => {
     return fetch(URL)
                     .then((response) => response.json())
                     .then((data) => {
-
-                        console.log(data)
                         let stats = data.stats.map(stat => stat.base_stat);
 
                         const otherDetails = {
@@ -44,9 +42,7 @@ pokeApi.getMoreDetailsOfPokemon = (pokemonNumber) => {
                             specialDefense: stats[4],
                             speed: stats[5]
                         };
-
-                        console.log(otherDetails)
-                        alert(`Pokémon: ${data.name}\nPeso: ${otherDetails.weight},\nAltura: ${otherDetails.height}`);
+                        return otherDetails;
                     })
                     .catch((error) => console.log(error));
 }
